@@ -21,7 +21,7 @@ for i in folders:
     shutil.rmtree("WardMaps/{}".format(i))
 
 
-r = requests.post('https://lolesports-api.bayesesports.com/auth/login', json={"username": "Bayes Username", "password": "Bayes Password"})
+r = requests.post('https://lolesports-api.bayesesports.com/auth/login', json={"username": "BAYES V2 USERNAME", "password": "BAYES V2 PASSWORD"})
 
 abc = r.json()
 
@@ -55,6 +55,7 @@ for i in matches:
     if matchCount == 10:
         break
 
+input()
 
 path = 'BayesData/'
 
@@ -125,13 +126,7 @@ for i in folders:
                         seconds = str(int((remainingSecs - (remainingSecs%1000))/1000)).zfill(2)
                         texts[count].append([abc["payload"]["payload"]["payload"]["position"][0],abc["payload"]["payload"]["payload"]["position"][1],str(minutes) + ":" + str(seconds), color, 7])
                     count = count + 1
-    #for i in range(len(x1)):
-        #plt.annotate(str(minutes[i]) + ":" + str(seconds[i]),
-                 #(x1[i],y1[i]), # these are the coordinates to position the label
-                 #textcoords="offset points", # how to position the text
-                 #xytext=(0,5), # distance from text to points (x,y)
-                 #ha='center',
-                 #fontsize = 10)
+   
 positions = ["Top", "Jungle", "Mid", "Bot", "Support"]
 print(texts)
 for i in range(5):
@@ -152,39 +147,4 @@ for i in range(5):
     #input()
     #plt.show()
     plt.clf()
-    
-            
-
-#for i in files:
-#    f = open(path + i)
-#    abc = json.load(f)
-#    if abc["payload"]["payload"]["payload"]["placerTeamUrn"] == "live:lol:riot:team:105532791598779236" and abc["payload"]["payload"]["payload"]["gameTime"] <= 600000:
-#        x1.append(abc["payload"]["payload"]["payload"]["position"][0])
-#        y1.append(abc["payload"]["payload"]["payload"]["position"][1])
-#        remainingSecs = (abc["payload"]["payload"]["payload"]["gameTime"]%60000)
-#        minutes.append(int((abc["payload"]["payload"]["payload"]["gameTime"] - (abc["payload"]["payload"]["payload"]["gameTime"]%60000))/60000))
-#        seconds.append(int((remainingSecs - (remainingSecs%1000))/1000))
-
-# Plot
-#sns.set_style("ticks")
-#sns.kdeplot(x=x1, y=y1, thresh=0.2, bw_adjust=.75, cmap="RdYlGn")
-#plt.scatter(x1,y1)
-#for i in range(len(x1)):
- #   plt.annotate(str(minutes[i]) + ":" + str(seconds[i]),
- #                (x1[i],y1[i]), # these are the coordinates to position the label
- #                textcoords="offset points", # how to position the text
- #                xytext=(0,5), # distance from text to points (x,y)
- #                ha='center',
- #                fontsize = 5)
-#plt.show()
-
-#fig, axes = plt.subplots(nrows = 1, ncols = 1, figsize = (5,5))
-#axes.set_ylim(-120, 14980)
-#axes.set_xlim(-120, 14870)
-#img = plt.imread("map11.png")
-#axes.imshow(img, extent=[-120, 14870, -120, 14980])
-#sns.set_style("ticks")
-#sns.kdeplot(x=x2, y=y2, thresh=0.2, bw_adjust=.75, cmap="RdYlGn", fill=True, alpha = 0.75)
-#plt.show()
-
 
